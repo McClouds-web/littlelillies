@@ -1,6 +1,6 @@
 """Shared page chrome for the Little Lilies site.
 
-Ported from the Stitch "Vibrant Scholastic" export — the nav, footer, blob
+Ported from the Stitch "Vibrant Scholastic" export, the nav, footer, blob
 utilities and decorative accents follow that code.html directly. Edit here and
 re-run build-pages.py; never hand-edit chrome inside a page.
 """
@@ -19,7 +19,7 @@ NAV = [
 
 # The two organic blobs from the export, inlined as data URIs.
 STYLE = """
-    body { font-family:'Be Vietnam Pro',system-ui,sans-serif; background:#fcf9f4; color:#1c1c19; }
+    body { font-family:'Be Vietnam Pro',system-ui,sans-serif; background:#ffffff; color:#1c1c19; }
     h1,h2,h3,h4 { font-family:'Quicksand',sans-serif; }
     .material-symbols-outlined { vertical-align:middle; }
 
@@ -35,7 +35,7 @@ STYLE = """
     .feature-card { box-shadow:0 10px 30px rgba(0,51,102,0.03); }
     .feature-card:hover { box-shadow:0 10px 30px rgba(0,51,102,0.08); }
 
-    /* Publishing gate — anything the school has not confirmed in writing. */
+    /* Publishing gate, anything the school has not confirmed in writing. */
     .gate { position:relative; outline:2px dashed #c9873a; outline-offset:8px; border-radius:1rem; }
     .gate::after { content:'UNCONFIRMED'; position:absolute; top:-11px; right:10px;
         font-family:'Be Vietnam Pro',sans-serif; font-size:9px; font-weight:700; letter-spacing:.05em;
@@ -84,7 +84,7 @@ def header(page):
         mobile.append(
             f'<a class="py-4 {"text-primary font-bold" if on else "text-on-surface-variant"}" href="{href}">{label}</a>')
     return f"""
-<nav class="bg-background w-full h-20 sticky top-0 shadow-sm flex justify-between items-center px-gutter max-w-container-max mx-auto z-50">
+<nav class="bg-background w-full h-20 sticky top-0 shadow-sm flex justify-between items-center px-gutter max-w-container-max mx-auto z-50 rounded-b-lg">
     <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2 shrink-0">
         <img src="logo/ll-mark.png" alt="" aria-hidden="true" class="h-10 w-auto"/>
         Little Lilies
@@ -96,7 +96,7 @@ def header(page):
     <div class="hidden sm:block">
         <a href="contact.html" class="bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3 px-6 rounded-full hover:brightness-95 transition-all duration-300 shadow-sm inline-flex items-center gap-2">
             Enquire Now
-            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+
         </a>
     </div>
     <button id="mobile-menu-trigger" class="lg:hidden text-primary p-2" aria-label="Open menu">

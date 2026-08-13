@@ -41,7 +41,7 @@ PAGES["about.html"] = dict(
     title="About Little Lilies Pre-School | Mogoditshane",
     desc="Little Lilies is a new preschool in Mogoditshane, Botswana, for children two and a half to five years. Structured early learning, daily English and a caring environment.",
     hero=("About us", "A small school, built around one promise",
-          "Little Lilies is new. That means we cannot point to decades of history — so instead we "
+          "Little Lilies is new. That means we cannot point to decades of history, so instead we "
           "invite you to look closely at what we actually do every day."),
     body=(
         section(heading("What we are for",
@@ -92,7 +92,7 @@ PAGES["programs.html"] = dict(
     title="Programmes | Little Lilies Pre-School",
     desc="Little Lilies takes children from two and a half to five years in Mogoditshane. Structured play-based learning with daily English development.",
     hero=("Programmes", "From two and a half, to the year before big school",
-          "We take children from two and a half to five years — from the first steps into a routine "
+          "We take children from two and a half to five years, from the first steps into a routine "
           "through to the confidence a child needs on their first day of primary school."),
     body=(
         section(heading("How the day is built", "Guided learning, purposeful play, English throughout",
@@ -150,7 +150,7 @@ doc_cards = "\n".join(
 
 STEPS = [
     ("Ask us a question", "Send an enquiry, call, or message us on WhatsApp. Tell us your child's age and where you live."),
-    ("Come and visit", "We will suggest some times. Bring your child if you can — how they respond to the room tells you a lot."),
+    ("Come and visit", "We will suggest some times. Bring your child if you can, how they respond to the room tells you a lot."),
     ("Complete the forms", "The enrolment form and the medical and consent form. Both are on this page to print and bring with you."),
     ("Confirm the place", "A place is confirmed once the registration fee is received and we have confirmed it to you in writing."),
 ]
@@ -223,7 +223,7 @@ PAGES["admissions.html"] = dict(
 # -------------------------------------------------------------- GALLERY ----
 PAGES["gallery.html"] = dict(
     title="Gallery | Little Lilies Pre-School",
-    desc="Photographs of Little Lilies Pre-School in Mogoditshane — our classrooms, playground, learning displays and the team who will look after your child.",
+    desc="Photographs of Little Lilies Pre-School in Mogoditshane, our classrooms, playground, learning displays and the team who will look after your child.",
     hero=("Gallery", "See the actual school",
           "Not stock photographs of somebody else's preschool. These are our rooms, our playground "
           "and our team, as they are."),
@@ -261,15 +261,15 @@ PAGES["gallery.html"] = dict(
 # ------------------------------------------------------------------ FAQ ----
 FAQS = [
     ("What ages do you take?",
-     "Children from two and a half to five years — from settling into a routine through to the year before primary school."),
+     "Children from two and a half to five years, from settling into a routine through to the year before primary school."),
     ("What does the fee cover?",
      "P5,100 per term covers school fees and food. You can pay it in three instalments of P1,700 instead. Registration is P200 once off, and there is a DAV fee of P800 paid as P400 and P400."),
     ("Can I pay in instalments?",
      "Yes. Three payments of P1,700 rather than the full term fee up front. We agree the dates with you when you register."),
     ("Is food really included?",
-     "Yes — meals are part of the term fee, not an extra charge. Tell us about any allergies or dietary needs on the medical and consent form."),
+     "Yes, meals are part of the term fee, not an extra charge. Tell us about any allergies or dietary needs on the medical and consent form."),
     ("Do you teach in English?",
-     "English runs through the whole day — stories, songs, vocabulary and conversation — as part of a Botswana-aligned early-learning programme, rather than as a separate lesson."),
+     "English runs through the whole day, stories, songs, vocabulary and conversation, as part of a Botswana-aligned early-learning programme, rather than as a separate lesson."),
     ("Does registering hold a place?",
      "Not on its own. A place is confirmed once we have received the registration fee and have confirmed it to you in writing."),
     ("Can I visit before deciding?",
@@ -288,7 +288,7 @@ faq_html = "\n".join(
 
 PAGES["faq.html"] = dict(
     title="Frequently Asked Questions | Little Lilies Pre-School",
-    desc="Answers to the questions parents ask most about Little Lilies Pre-School in Mogoditshane — ages, fees, instalments, meals, English and visiting.",
+    desc="Answers to the questions parents ask most about Little Lilies Pre-School in Mogoditshane, ages, fees, instalments, meals, English and visiting.",
     hero=("Questions", "The things parents actually ask",
           "If your question is not here, ask us. We would rather answer it now than have you wonder."),
     body=(
