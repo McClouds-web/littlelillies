@@ -34,12 +34,12 @@
                       "primary": "#755b00",
                       "outline-variant": "#d2c5ad",
                       "secondary-fixed": "#d5e3ff",
-                      "background": "#fcf9f4",
+                      "background": "#ffffff",
                       "on-tertiary-fixed": "#0f2000",
                       "surface-container-high": "#ebe8e3",
-                      "surface-bright": "#fcf9f4",
+                      "surface-bright": "#ffffff",
                       "on-tertiary-fixed-variant": "#2e4f00",
-                      "surface": "#fcf9f4",
+                      "surface": "#ffffff",
                       "on-tertiary-container": "#3c6500",
                       "tertiary-fixed": "#b4f666",
                       "on-surface": "#1c1c19",
@@ -80,7 +80,7 @@
                       "base": "8px",
                       "section-padding-mobile": "64px",
                       "gutter": "24px",
-                      "section-padding-desktop": "120px"
+                      "section-padding-desktop": "88px"
               },
               "fontFamily": {
                       "headline-lg": [
@@ -285,7 +285,7 @@ body.ll-locked{ overflow:hidden; }
   section[class*="min-h-[56vh]"],section[class*="min-h-[52vh]"]{ min-height:46svh !important; }
 
   /* Section rhythm tightened, and gutters kept consistent */
-  .py-section-padding-mobile{ padding-top:44px !important; padding-bottom:44px !important; }
+  .py-section-padding-mobile md:py-section-padding-desktop{ padding-top:44px !important; padding-bottom:44px !important; }
   .px-gutter{ padding-left:18px !important; padding-right:18px !important; }
   main > section{ scroll-margin-top:80px; }
 
@@ -340,12 +340,32 @@ body.ll-locked{ overflow:hidden; }
   .lift:hover{ transform:none; }
   *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
+
+    /* Crayon marks. Decorative only, hidden on small screens. */
+    .ll-mark { position:absolute; pointer-events:none; z-index:0; opacity:.2;
+        background-repeat:no-repeat; background-size:contain; background-position:center; }
+    .ll-mark--blob { opacity:.13; }
+    .ll-mark ~ * { position:relative; z-index:1; }
+    @media (max-width:900px) { .ll-mark { display:none; } }
+    @media print { .ll-mark { display:none; } }
+    .ll-dots-green { width:114px; height:90px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 114 90'><g fill='%236FAB22'><circle cx='9' cy='9' r='5.5'/><circle cx='30' cy='9' r='5.5'/><circle cx='51' cy='9' r='5.5'/><circle cx='72' cy='9' r='5.5'/><circle cx='93' cy='9' r='5.5'/><circle cx='9' cy='30' r='5.5'/><circle cx='30' cy='30' r='5.5'/><circle cx='51' cy='30' r='5.5'/><circle cx='72' cy='30' r='5.5'/><circle cx='93' cy='30' r='5.5'/><circle cx='9' cy='51' r='5.5'/><circle cx='30' cy='51' r='5.5'/><circle cx='51' cy='51' r='5.5'/><circle cx='72' cy='51' r='5.5'/><circle cx='93' cy='51' r='5.5'/><circle cx='9' cy='72' r='5.5'/><circle cx='30' cy='72' r='5.5'/><circle cx='51' cy='72' r='5.5'/><circle cx='72' cy='72' r='5.5'/><circle cx='93' cy='72' r='5.5'/></g></svg>"); }
+    .ll-squiggle-mustard { width:160px; height:44px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 44'><path d='M6 30 Q 22 6 38 30 T 70 30 T 102 30 T 134 30 T 154 26' fill='none' stroke='%23FFCC33' stroke-width='8' stroke-linecap='round'/></svg>"); }
+    .ll-arc-blue { width:130px; height:76px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 76'><g fill='none' stroke-linecap='round' stroke-width='8'><path d='M10 70 A 55 55 0 0 1 120 70' stroke='%233060A7'/><path d='M26 70 A 39 39 0 0 1 104 70' stroke='%233060A7' opacity='.65'/><path d='M42 70 A 23 23 0 0 1 88 70' stroke='%233060A7' opacity='.4'/></g></svg>"); }
+    .ll-dots-pink { width:114px; height:90px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 114 90'><g fill='%23E9A0C0'><circle cx='9' cy='9' r='5.5'/><circle cx='30' cy='9' r='5.5'/><circle cx='51' cy='9' r='5.5'/><circle cx='72' cy='9' r='5.5'/><circle cx='93' cy='9' r='5.5'/><circle cx='9' cy='30' r='5.5'/><circle cx='30' cy='30' r='5.5'/><circle cx='51' cy='30' r='5.5'/><circle cx='72' cy='30' r='5.5'/><circle cx='93' cy='30' r='5.5'/><circle cx='9' cy='51' r='5.5'/><circle cx='30' cy='51' r='5.5'/><circle cx='51' cy='51' r='5.5'/><circle cx='72' cy='51' r='5.5'/><circle cx='93' cy='51' r='5.5'/><circle cx='9' cy='72' r='5.5'/><circle cx='30' cy='72' r='5.5'/><circle cx='51' cy='72' r='5.5'/><circle cx='72' cy='72' r='5.5'/><circle cx='93' cy='72' r='5.5'/></g></svg>"); }
+    .ll-burst-mustard { width:80px; height:80px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g stroke='%23FFCC33' stroke-width='7' stroke-linecap='round'><path d='M40 6 v16'/><path d='M40 58 v16'/><path d='M6 40 h16'/><path d='M58 40 h16'/><path d='M16 16 l11 11'/><path d='M53 53 l11 11'/><path d='M64 16 l-11 11'/><path d='M27 53 l-11 11'/></g></svg>"); }
+    .ll-star-purple { width:72px; height:72px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'><path d='M36 6 L45 27 L68 29 L50 44 L56 67 L36 54 L16 67 L22 44 L4 29 L27 27 Z' fill='none' stroke='%23865FB3' stroke-width='6' stroke-linejoin='round'/></svg>"); }
+    .ll-squiggle-green { width:160px; height:44px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 44'><path d='M6 30 Q 22 6 38 30 T 70 30 T 102 30 T 134 30 T 154 26' fill='none' stroke='%236FAB22' stroke-width='8' stroke-linecap='round'/></svg>"); }
+    .ll-heart-pink { width:76px; height:68px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 68'><path d='M38 62 C 6 42 6 18 20 10 C 30 4 38 14 38 20 C 38 14 46 4 56 10 C 70 18 70 42 38 62 Z' fill='none' stroke='%23E9A0C0' stroke-width='6' stroke-linejoin='round'/></svg>"); }
+    .ll-dots-blue { width:114px; height:90px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 114 90'><g fill='%233060A7'><circle cx='9' cy='9' r='5.5'/><circle cx='30' cy='9' r='5.5'/><circle cx='51' cy='9' r='5.5'/><circle cx='72' cy='9' r='5.5'/><circle cx='93' cy='9' r='5.5'/><circle cx='9' cy='30' r='5.5'/><circle cx='30' cy='30' r='5.5'/><circle cx='51' cy='30' r='5.5'/><circle cx='72' cy='30' r='5.5'/><circle cx='93' cy='30' r='5.5'/><circle cx='9' cy='51' r='5.5'/><circle cx='30' cy='51' r='5.5'/><circle cx='51' cy='51' r='5.5'/><circle cx='72' cy='51' r='5.5'/><circle cx='93' cy='51' r='5.5'/><circle cx='9' cy='72' r='5.5'/><circle cx='30' cy='72' r='5.5'/><circle cx='51' cy='72' r='5.5'/><circle cx='72' cy='72' r='5.5'/><circle cx='93' cy='72' r='5.5'/></g></svg>"); }
+    .ll-arc-mustard { width:130px; height:76px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 76'><g fill='none' stroke-linecap='round' stroke-width='8'><path d='M10 70 A 55 55 0 0 1 120 70' stroke='%23FFCC33'/><path d='M26 70 A 39 39 0 0 1 104 70' stroke='%23FFCC33' opacity='.65'/><path d='M42 70 A 23 23 0 0 1 88 70' stroke='%23FFCC33' opacity='.4'/></g></svg>"); }
+    .ll-blob-purple { width:230px; height:230px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path fill='%23865FB3' d='M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,87.7,-1.3C85.4,13.7,78.2,27.4,69.5,39.6C60.8,51.8,50.7,62.5,38.1,70.5C25.5,78.5,10.4,83.8,-3.8,89.3C-18,94.8,-31.2,100.5,-42.6,96.6C-54,92.7,-63.5,79.2,-71.5,65.3C-79.5,51.4,-86,37.1,-89,21.8C-92,6.5,-91.5,-9.8,-86.3,-24.1C-81.1,-38.4,-71.2,-50.7,-58.9,-59.6C-46.6,-68.5,-32,-74,-17.7,-74.6C-3.4,-75.2,10.6,-70.9,24.1,-67.2C37.6,-63.5,50.6,-60.5,44.7,-76.4Z' transform='translate(100 100)'/></svg>"); }
+    .ll-star-green { width:72px; height:72px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'><path d='M36 6 L45 27 L68 29 L50 44 L56 67 L36 54 L16 67 L22 44 L4 29 L27 27 Z' fill='none' stroke='%236FAB22' stroke-width='6' stroke-linejoin='round'/></svg>"); }
 </style>
-  <script type="module" crossorigin src="./assets/main-Dxw1xnPa.js"></script>
+  <script type="module" crossorigin src="./assets/main-CqlLEQio.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
 <!-- Top Navigation Bar -->
-<nav class="bg-background w-full h-20 sticky top-0 border-b-0 shadow-sm flex justify-between items-center px-gutter max-w-container-max mx-auto z-50">
+<nav class="bg-background w-full h-20 sticky top-0 border-b-0 shadow-sm flex justify-between items-center px-gutter max-w-container-max mx-auto z-50 rounded-b-lg">
 <a href="index.html" class="flex items-center shrink-0"><img loading="lazy" decoding="async" src="logo/ll-mark.png" alt="Little Lilies Pre-School" class="h-9 w-auto"/></a>
 <div class="hidden md:flex items-center gap-8 font-label-bold text-label-bold">
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html">Home</a>
@@ -358,7 +378,6 @@ body.ll-locked{ overflow:hidden; }
 <div class="hidden md:block">
 <a href="contact.html" class="bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3 px-6 rounded-full hover:bg-surface-container-highest/10 transition-all duration-300 scale-105 shadow-sm inline-flex items-center gap-2">
                 Enquire Now
-                <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 <!-- Mobile Menu Button -->
@@ -367,7 +386,118 @@ body.ll-locked{ overflow:hidden; }
 </button>
 </nav>
 <main>
-<section class="relative left-1/2 -translate-x-1/2 w-screen min-h-[52vh] flex items-center overflow-hidden"><div class="absolute inset-0 bg-cover bg-center" style="background-image:url('img/school/exterior-gate.jpg')" aria-hidden="true"></div><div class="absolute inset-0 bg-gradient-to-r from-brand-purple/90 via-brand-purple/75 to-brand-purple/40" aria-hidden="true"></div><div class="relative z-10 w-full px-gutter max-w-container-max mx-auto py-20"><div class="max-w-2xl"><h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-white text-balance">Book a Visit</h1><p class="mt-5 font-body-lg text-body-lg text-white/90">Send a short note and we will reply with some times to visit.</p></div></div></section><section class="px-gutter max-w-container-max mx-auto pb-section-padding-mobile"><div class="grid lg:grid-cols-2 gap-12"><div><h2 class="font-headline-md text-headline-md text-on-surface mb-6">Find us</h2><div class="space-y-5 font-body-md text-body-md text-on-surface-variant"><p class="flex gap-3"><span class="material-symbols-outlined text-primary">location_on</span><span>Plot 17051, Kgosing Ward<br/>Mogoditshane, Botswana</span></p><p class="flex gap-3"><span class="material-symbols-outlined text-primary">call</span><span><a class="hover:text-primary font-bold" href="https://wa.me/26772661691">+267 73 674 494</a><br/><a class="hover:text-primary font-bold" href="https://wa.me/26772661691">+267 72 661 691</a><br/><span class="text-outline">Call or WhatsApp</span></span></p><p class="flex gap-3"><span class="material-symbols-outlined text-primary">mail</span><a class="hover:text-primary" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a></p><p class="flex gap-3"><span class="material-symbols-outlined text-primary">share</span><span>Facebook and TikTok: Little Lillies</span></p><p class="flex gap-3 gate"><span class="material-symbols-outlined text-secondary">schedule</span><span>Opening hours to be confirmed</span></p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Plot+17051+Kgosing+Ward+Mogoditshane+Botswana" class="mt-8 bg-transparent border-2 border-secondary text-secondary font-label-bold text-label-bold py-3 px-6 rounded-full hover:bg-secondary/5 transition-colors duration-300 inline-inline-flex items-center gap-2"><span class="material-symbols-outlined text-sm">map</span> Open in Google Maps</a></div><form id="enquiry-form" class="bg-white rounded p-8 shadow-[0_10px_30px_rgba(0,51,102,0.03)] space-y-5" novalidate><h2 class="font-headline-md text-headline-md text-on-surface">Send an enquiry</h2><div class="grid sm:grid-cols-2 gap-5"><label class="block"><input name="parent_name" autocomplete="name" type="text" required class="mt-2 w-full rounded border-outline-variant focus:border-primary focus:ring-primary"/></label><label class="block"><input name="parent_phone" type="tel" inputmode="tel" autocomplete="tel" required class="mt-2 w-full rounded border-outline-variant focus:border-primary focus:ring-primary"/></label><label class="block"><input name="child_age" type="text" class="mt-2 w-full rounded border-outline-variant focus:border-primary focus:ring-primary"/></label><label class="block"><input name="area" type="text" class="mt-2 w-full rounded border-outline-variant focus:border-primary focus:ring-primary"/></label></div><label class="block"><textarea name="message" rows="4" class="mt-2 w-full rounded border-outline-variant focus:border-primary focus:ring-primary"></textarea></label><label class="flex gap-3 items-start font-body-md text-sm text-on-surface-variant"><input name="consent" type="checkbox" required class="mt-1 rounded border-outline-variant text-primary focus:ring-primary"/><span>Little Lilies may contact me about my enquiry.</span></label><button type="submit" class="w-full bg-primary-container text-on-primary-container font-label-bold text-label-bold py-4 rounded-full hover:scale-105 transition-transform duration-300">Send enquiry</button><p id="enquiry-status" class="font-body-md text-sm text-center" role="status" aria-live="polite"></p></form></div></section>
+<section class="relative left-1/2 -translate-x-1/2 w-screen min-h-[52vh] flex items-center overflow-hidden"><div class="absolute inset-0 bg-cover bg-center" style="background-image:url('img/school/exterior-gate.jpg')" aria-hidden="true"></div><div class="absolute inset-0 bg-gradient-to-r from-brand-purple/90 via-brand-purple/75 to-brand-purple/40" aria-hidden="true"></div><div class="relative z-10 w-full px-gutter max-w-container-max mx-auto py-20"><div class="max-w-2xl"><h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-white text-balance">Book a Visit</h1><p class="mt-5 font-body-lg text-body-lg text-white/90">Send a short note and we will reply with some times to visit.</p></div></div></section><section class="relative px-gutter max-w-container-max mx-auto py-section-padding-mobile md:py-section-padding-desktop"><span class="ll-mark ll-dots-green" style="top:3%; right:1%;" aria-hidden="true"></span><div class="relative z-10 grid lg:grid-cols-[1fr_minmax(0,470px)] gap-10 lg:gap-14 items-start">
+
+        <!-- ---------- Find us ---------- -->
+        <div>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-md text-on-surface">Come and see the school</h2>
+            <p class="mt-4 font-body-lg text-body-lg text-on-surface-variant max-w-[52ch]">We are on Plot 17051 in Kgosing Ward, Mogoditshane. Call or message us on WhatsApp and we will arrange a time that suits you.</p>
+
+            <ul class="mt-10 space-y-7">
+                <li class="flex gap-4 items-start">
+                    <span class="material-symbols-outlined !text-[26px] text-brand-purple mt-0.5 shrink-0">location_on</span>
+                    <div class="min-w-0">
+                        <p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Where we are</p>
+                        <div class="mt-1 font-body-lg text-body-lg text-on-surface">Plot 17051, Kgosing Ward<br/>Mogoditshane, Botswana</div>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start">
+                    <span class="material-symbols-outlined !text-[26px] text-brand-green mt-0.5 shrink-0">call</span>
+                    <div class="min-w-0">
+                        <p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Call or WhatsApp</p>
+                        <div class="mt-1 font-body-lg text-body-lg text-on-surface"><a class="font-bold hover:text-brand-green transition-colors" href="https://wa.me/26773674494">+267 73 674 494</a><br/><a class="font-bold hover:text-brand-green transition-colors" href="https://wa.me/26772661691">+267 72 661 691</a></div>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start">
+                    <span class="material-symbols-outlined !text-[26px] text-brand-blue mt-0.5 shrink-0">mail</span>
+                    <div class="min-w-0">
+                        <p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Email us</p>
+                        <div class="mt-1 font-body-lg text-body-lg text-on-surface"><a class="hover:text-brand-blue transition-colors break-words" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a></div>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start">
+                    <span class="material-symbols-outlined !text-[26px] text-brand-purple mt-0.5 shrink-0">schedule</span>
+                    <div class="min-w-0">
+                        <p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Opening hours</p>
+                        <div class="mt-1 font-body-lg text-body-lg text-on-surface">Monday to Friday<br/>8:00am &ndash; 5:00pm</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-9">
+                <div class="flex items-center gap-3">
+                    <a href="https://www.facebook.com/search/top?q=little%20lillies" aria-label="Little Lilies on Facebook" class="w-11 h-11 rounded-full grid place-items-center text-white hover:scale-110 transition-transform duration-300" style="background-color:#421163"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg></a>
+                    <a href="https://www.tiktok.com/search?q=little%20lillies" aria-label="Little Lilies on TikTok" class="w-11 h-11 rounded-full grid place-items-center text-white hover:scale-110 transition-transform duration-300" style="background-color:#3060A7"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-1.79-2.46V9.79a5.8 5.8 0 1 0 4.88 5.72V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48Z"/></svg></a>
+                    <a href="https://wa.me/26773674494" aria-label="Little Lilies on WhatsApp" class="w-11 h-11 rounded-full grid place-items-center text-white hover:scale-110 transition-transform duration-300" style="background-color:#6FAB22"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9a9.8 9.8 0 0 0 1.35 4.96L2 22l5.29-1.38a9.94 9.94 0 0 0 4.75 1.2h.01A9.9 9.9 0 0 0 22 11.92 9.9 9.9 0 0 0 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.69-2.77-1.1-4.53-3.93-4.67-4.11-.13-.18-1.11-1.48-1.11-2.83s.71-2 .96-2.28c.25-.27.55-.34.73-.34l.52.01c.17 0 .4-.06.62.47l.85 2.06c.07.14.12.31.02.5-.1.18-.15.3-.29.46l-.44.5c-.14.14-.29.3-.12.59.16.28.73 1.2 1.56 1.941.07.95 1.98 1.25 2.26 1.39.28.14.45.12.61-.07l.87-1.02c.2-.24.37-.18.62-.09l1.98.93c.25.12.42.18.48.28.06.1.06.6-.18 1.28Z"/></svg></a>
+                </div>
+            </div>
+
+            <!-- ---------- Map ---------- -->
+            <div class="mt-10 overflow-hidden rounded shadow-[0_10px_30px_rgba(0,51,102,0.08)] bg-surface-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3627.3002340399735!2d25.842021075362982!3d-24.613334978091444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebb4f3ee01d545f%3A0x16a8f570decd1e05!2sMogoditshane%20block%205!5e0!3m2!1sen!2szw!4v1786642883414!5m2!1sen!2szw"
+                    title="Map showing Little Lilies Pre-School in Mogoditshane"
+                    class="block w-full h-[320px] md:h-[380px] border-0"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Plot+17051+Kgosing+Ward+Mogoditshane+Botswana"
+               class="mt-4 text-brand-blue font-label-bold text-label-bold inline-flex items-center gap-2 hover:underline">
+                <span class="material-symbols-outlined !text-[18px]">open_in_new</span> Open in Google Maps
+            </a>
+        </div>
+
+        <!-- ---------- Enquiry form ---------- -->
+        <form id="enquiry-form" class="bg-surface-container-lowest rounded p-6 md:p-8 shadow-[0_10px_30px_rgba(0,51,102,0.06)] lg:sticky lg:top-28" novalidate>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Send an enquiry</h2>
+            <p class="mt-2 font-body-md text-body-md text-on-surface-variant">Tell us a little about your child and we will reply with some times to visit.</p>
+
+            <div class="mt-6 space-y-5">
+                <div class="grid sm:grid-cols-2 gap-5">
+                <label class="block" for="enq-name">
+                    <span class="font-label-bold text-label-bold text-on-surface">Your name <span class="text-error" aria-hidden="true">*</span></span>
+                    <input id="enq-name" name="enq-name" type="text" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors" required autocomplete="name"/>
+                </label>
+                <label class="block" for="enq-phone">
+                    <span class="font-label-bold text-label-bold text-on-surface">Phone <span class="text-error" aria-hidden="true">*</span></span><span class="block mt-1 font-body-md text-xs text-on-surface-variant">WhatsApp if you have it</span>
+                    <input id="enq-phone" name="enq-phone" type="tel" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors" required autocomplete="tel" inputmode="tel"/>
+                </label>
+                </div>
+                <label class="block" for="enq-email">
+                    <span class="font-label-bold text-label-bold text-on-surface">Email <span class="text-error" aria-hidden="true">*</span></span>
+                    <input id="enq-email" name="enq-email" type="email" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors" required autocomplete="email"/>
+                </label>
+                <div class="grid sm:grid-cols-2 gap-5">
+                <label class="block" for="enq-age">
+                    <span class="font-label-bold text-label-bold text-on-surface">Child&rsquo;s age </span>
+                    <input id="enq-age" name="enq-age" type="text" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors" placeholder="e.g. 3 years"/>
+                </label>
+                <label class="block" for="enq-area">
+                    <span class="font-label-bold text-label-bold text-on-surface">Where you live </span>
+                    <input id="enq-area" name="enq-area" type="text" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors" placeholder="e.g. Mogoditshane"/>
+                </label>
+                </div>
+                <label class="block" for="enq-message">
+                    <span class="font-label-bold text-label-bold text-on-surface">Your message <span class="text-error" aria-hidden="true">*</span></span>
+                    <textarea id="enq-message" name="enq-message" rows="4" class="mt-2 w-full rounded border-outline-variant bg-surface-container-lowest focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 transition-colors resize-y" required></textarea>
+                </label>
+
+                <label class="flex gap-3 items-start font-body-md text-sm text-on-surface-variant">
+                    <input id="consent" name="consent" type="checkbox" required class="mt-1 rounded border-outline-variant text-brand-green focus:ring-brand-green"/>
+                    <span>Little Lilies may contact me about my enquiry.</span>
+                </label>
+
+                <button type="submit" data-submit class="w-full bg-brand-green text-white font-label-bold text-label-bold py-4 rounded-full hover:brightness-95 transition-all duration-300 shadow-sm inline-flex items-center justify-center gap-2">
+                    Send enquiry
+                </button>
+                <p id="enquiry-status" class="font-body-md text-sm text-center" role="status" aria-live="polite"></p>
+            </div>
+        </form>
+
+    </div>
+</section>
 </main>
 <!-- Footer -->
 <footer class="bg-surface-container w-full rounded-t-lg mt-12 py-section-padding-mobile md:py-section-padding-desktop px-gutter">
