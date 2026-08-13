@@ -1,0 +1,14 @@
+{
+  "id": "session-1785161652505",
+  "startedAt": "2026-07-27T14:14:12.505Z",
+  "cwd": "/Users/tapxmedia/Downloads/Radiant Hearts Pre-school",
+  "context": {},
+  "metrics": {
+    "edits": 38,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-07-27T15:48:37.792Z",
+  "duration": 5665288
+}

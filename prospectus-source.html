@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Little Lilies Pre-School Prospectus</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --purple:#421163; --mark:#865FB3; --green:#6FAB22; --blue:#3060A7;
+    --wash:#F3EEF9; --green-wash:#F1F7E8; --sky:#EDF2FA; --sand:#F1F7E8;
+    --graphite:#241436; --grey:#6C6480; --hair:#E4DCEF;
+    --gate:#C9873A; --gate-wash:#FBF3E7;
+  }
+  @page { size: A4; margin: 0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:"Inter","Helvetica Neue",sans-serif; color:var(--graphite); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  h1,h2,h3,h4{ font-family:"Poppins","Century Gothic",sans-serif; font-weight:600; color:var(--purple); }
+  .page{ width:210mm; height:297mm; padding:18mm 16mm; position:relative; overflow:hidden; page-break-after:always; }
+  .page:last-child{ page-break-after:auto; }
+  .accent{ color:var(--mark); }
+
+  /* ---- cover ---- */
+  .cover{ background:#fff; color:var(--graphite); display:flex; flex-direction:column; justify-content:space-between; }
+  .cover h1,.cover h2,.cover h3{ color:var(--purple); }
+  .cover .blob{ position:absolute; border-radius:60% 40% 30% 70%/60% 30% 70% 40%; background:rgba(134,95,179,.16); }
+  .cover .b1{ width:340px; height:340px; top:-120px; right:-110px; }
+  .cover .b2{ width:260px; height:260px; bottom:-110px; left:-120px; background:rgba(111,171,34,.10); }
+  .cover-logo{ width:74mm; display:block; }
+  .cover h1{ font-size:40pt; line-height:1.1; }
+  .cover .lede{ font-size:13pt; line-height:1.65; color:var(--graphite); max-width:120mm; margin-top:8mm; }
+  .cover .meta{ font-size:10pt; color:var(--grey); line-height:1.9; }
+  .pill{ display:inline-block; background:var(--green); color:var(--purple); font-family:"Poppins",sans-serif;
+         font-weight:600; font-size:10pt; padding:3mm 7mm; border-radius:999px; letter-spacing:.06em; }
+
+  /* ---- inner pages ---- */
+  .eyebrow{ font-size:9pt; letter-spacing:.2em; text-transform:uppercase; color:var(--mark); font-weight:700; }
+  h2.section{ font-size:24pt; margin:2.5mm 0 4.5mm; }
+  h3{ font-size:13pt; margin-bottom:1.5mm; }
+  p{ font-size:10.5pt; line-height:1.7; }
+  .muted{ color:var(--grey); }
+
+  .cards{ display:flex; gap:5mm; margin-bottom:4mm; }
+  .card{ flex:1; border-radius:6mm; padding:5mm; }
+  .card .age{ font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; font-weight:700; }
+  .card p{ font-size:9.5pt; line-height:1.6; margin-top:2mm; }
+  .c-orange{ background:var(--green-wash); } .c-orange h3,.c-orange .age{ color:var(--purple); } .c-orange p{ color:rgba(27,7,48,.82); }
+  .c-navy{ background:var(--purple); } .c-navy h3{ color:#fff; } .c-navy .age{ color:var(--mark); } .c-navy p{ color:rgba(255,255,255,.8); }
+  .c-sky{ background:var(--sky); } .c-sky .age{ color:var(--mark); }
+
+  table{ width:100%; border-collapse:collapse; margin-top:3mm; }
+  td{ font-size:10.5pt; padding:3.2mm 0; border-bottom:1px solid var(--hair); }
+  td.r{ text-align:right; font-family:"Poppins",sans-serif; font-weight:600; color:var(--purple); white-space:nowrap; }
+
+  .rhythm{ display:flex; gap:4mm; }
+  .daytable{ width:100%; border-collapse:collapse; margin-top:0; }
+  .daytable td{ font-size:9pt; padding:1.5mm 0; border-bottom:1px solid var(--hair); }
+  .daytable td.rt{ width:33%; font-family:"Poppins",sans-serif; font-weight:600; color:var(--purple); white-space:nowrap; }
+  .daytable td.ra{ color:var(--graphite); }
+  .slot{ flex:1; border-radius:5mm; padding:5mm; background:var(--wash); }
+  .slot .time{ font-size:8.5pt; font-weight:700; letter-spacing:.1em; color:var(--mark); }
+  .slot h4{ font-size:11pt; margin:1.5mm 0; }
+  .slot p{ font-size:9pt; line-height:1.5; }
+
+  ul{ list-style:none; margin-top:3mm; }
+  li{ font-size:10.5pt; line-height:1.65; padding-left:7mm; position:relative; margin-bottom:2.6mm; }
+  li:before{ content:""; position:absolute; left:0; top:2.6mm; width:2.6mm; height:2.6mm; border-radius:50%; background:var(--green); }
+
+  .box{ background:var(--wash); border-radius:6mm; padding:5mm; margin-top:4mm; }
+  .box.navy{ background:var(--purple); } .box.navy h3{ color:#fff; } .box.navy p,.box.navy li{ color:rgba(255,255,255,.85); }
+  .box.navy td{ color:rgba(255,255,255,.85); border-bottom-color:rgba(255,255,255,.15); }
+  .box.navy td.r{ color:#C9A9E6; }
+  .box.sand{ background:var(--sand); }
+
+  .steps{ counter-reset:s; }
+  .step{ display:flex; gap:5mm; margin-bottom:4mm; align-items:flex-start; }
+  .num{ flex:none; width:9mm; height:9mm; border-radius:50%; background:var(--green); color:var(--purple);
+        font-family:"Poppins",sans-serif; font-weight:700; font-size:11pt; display:flex; align-items:center; justify-content:center; }
+
+  .foot{ position:absolute; left:16mm; right:16mm; bottom:12mm; display:flex; justify-content:space-between;
+         font-size:8.5pt; color:var(--grey); border-top:1px solid var(--hair); padding-top:3mm; }
+  .contact-logo{ width:38mm; margin-bottom:4mm; }
+
+  /* Publishing gate — mirrors doc-styles.css, which this file does not link. */
+  .gate{ background:var(--gate-wash); outline:1px dashed var(--gate); outline-offset:1mm; }
+  .gate-tag{ display:inline-block; background:var(--gate); color:#fff; font-family:"Poppins",sans-serif;
+             font-size:7pt; letter-spacing:.14em; padding:0.6mm 2mm; border-radius:0.8mm; vertical-align:middle; }
+  .draft-band{ background:var(--gate-wash); border-left:2.5mm solid var(--gate); padding:3.5mm 4mm; margin-bottom:5mm; }
+  .draft-band p{ font-size:9pt; color:#7A5217; }
+  .small{ font-size:9pt; line-height:1.55; }
+</style>
+</head>
+<body>
+
+<!-- ======== 1. COVER ======== -->
+<section class="page cover">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <img class="cover-logo" src="public/logo/ll-primary.png" alt="Little Lilies Pre-School" style="position:relative"/>
+  <div style="position:relative; margin:auto 0">
+    <h1>Little steps today.<br/>Big dreams tomorrow.</h1>
+    <p class="lede">A nurturing preschool in Mogoditshane for children two and a half to five years, combining structured
+    early learning with daily English development in a caring environment.</p>
+    <div style="margin-top:10mm"><span class="pill">PROSPECTUS</span></div>
+  </div>
+  <div class="meta" style="position:relative">
+    Plot 17051, Kgosing Ward, Mogoditshane, Botswana<br/>
+    +267 73674494 &nbsp;·&nbsp; bigdreamslilies@gmail.com &nbsp;·&nbsp; www.littlelilies.co.bw<br/>
+    www.littlelilies.co.bw<br/>
+    Facebook &amp; TikTok: Little Lillies
+  </div>
+</section>
+
+<!-- ======== 2. CLASSES + DAY ======== -->
+<section class="page">
+  <p class="eyebrow">What we offer</p>
+  <h2 class="section">Our <span class="accent">Groups</span></h2>
+  <p style="max-width:150mm">We take children from two and a half to five years.</p>
+
+  <div class="draft-band"><p><strong>To complete.</strong> How that range is split into groups, and the
+  group names, sizes and staffing, are still to be supplied by the school. The cards below are placeholders
+  and must be replaced with Little Lilies' own before this prospectus is issued.</p></div>
+
+  <div class="cards gate" style="margin-top:5mm">
+    <div class="card c-orange">
+      <h3>Group one</h3>
+      <p>Age band, routine and group size to be confirmed.</p>
+    </div>
+    <div class="card c-navy">
+      <h3>Group two</h3>
+      <p>Age band, routine and group size to be confirmed.</p>
+    </div>
+    <div class="card c-sky">
+      <h3>Group three</h3>
+      <p>Age band, routine and group size to be confirmed.</p>
+    </div>
+    <div class="card c-orange">
+      <h3>Group four</h3>
+      <p>Age band, routine and group size to be confirmed.</p>
+    </div>
+  </div>
+
+  <p class="eyebrow">A typical day</p>
+  <h2 class="section">Our Daily <span class="accent">Rhythm</span> <span class="gate-tag">TO CONFIRM</span></h2>
+  <div class="row gate" style="display:flex; gap:7mm; margin-top:1mm; padding:3mm">
+    <div class="f" style="flex:1"><table class="daytable">
+      <tr><td class="rt"></td><td class="ra">Arrival and settling in</td></tr>
+      <tr><td class="rt"></td><td class="ra">Breakfast</td></tr>
+      <tr><td class="rt"></td><td class="ra">Circle time: songs, stories and English conversation</td></tr>
+      <tr><td class="rt"></td><td class="ra">Outdoor play</td></tr>
+      <tr><td class="rt"></td><td class="ra">Guided learning: early concepts in small groups</td></tr>
+      <tr><td class="rt"></td><td class="ra">Purposeful play and creative activities</td></tr>
+    </table></div>
+    <div class="f" style="flex:1"><table class="daytable">
+      <tr><td class="rt"></td><td class="ra">Lunch</td></tr>
+      <tr><td class="rt"></td><td class="ra">Rest and quiet time</td></tr>
+      <tr><td class="rt"></td><td class="ra">Afternoon activities</td></tr>
+      <tr><td class="rt"></td><td class="ra">Snack</td></tr>
+      <tr><td class="rt"></td><td class="ra">Collection and goodbyes</td></tr>
+    </table></div>
+  </div>
+
+  <div class="box sand">
+    <h3>Every group includes</h3>
+    <ul>
+      <li>Structured daily learning combining guided activities and purposeful play</li>
+      <li>Daily English stories, songs, vocabulary and conversation</li>
+      <li>Food, as stated on the school's flyer</li>
+    </ul>
+    <p class="small" style="margin-top:2.5mm">Meals, outdoor facilities, parent updates and group sizes
+    are to be confirmed by the school before this list is extended.</p>
+  </div>
+
+  <div class="foot"><span>Little Lilies Pre-School</span><span>Prospectus</span></div>
+</section>
+
+<!-- ======== 3. HOURS + FEES ======== -->
+<section class="page">
+  <p class="eyebrow">Times and fees</p>
+  <h2 class="section">Hours That <span class="accent">Suit You</span></h2>
+  <p style="max-width:150mm">Choose the pattern that fits your family.</p>
+
+  <div class="draft-band"><p><strong>To complete.</strong> Session patterns and operating hours are to be
+  supplied by the school. Which sessions are actually offered has not been established.</p></div>
+
+  <table class="gate">
+    <tr><td><strong>Full day</strong></td><td class="r"></td></tr>
+    <tr><td><strong>Morning</strong></td><td class="r"></td></tr>
+    <tr><td><strong>Afternoon</strong></td><td class="r"></td></tr>
+    <tr><td><strong>Part week</strong></td><td class="r"></td></tr>
+  </table>
+
+  <div class="box navy">
+    <h3>Fees</h3>
+    <table>
+      <tr><td>Registration fee (once off)</td><td class="r">P200</td></tr>
+      <tr><td>DAV fee (P400 + P400)</td><td class="r">P800</td></tr>
+      <tr><td>Per term, including food</td><td class="r">P5,100</td></tr>
+      <tr><td>By instalment, three payments</td><td class="r">P1,700 &times;3</td></tr>
+    </table>
+    <p style="margin-top:4mm; font-size:9.5pt">All amounts in Botswana Pula, per child. Ask us for the
+    current fee sheet and the instalment dates.</p>
+  </div>
+
+  <div class="box">
+    <h3>What to bring when you register</h3>
+    <ul>
+      <li><strong>Birth certificate</strong> &nbsp;A photocopy is fine, we do not need the original</li>
+      <li><strong>Immunisation card</strong> &nbsp;Up to date for your child's age</li>
+      <li><strong>Medical and allergy notes</strong> &nbsp;Anything our teachers should know</li>
+      <li><strong>Two emergency contacts</strong> &nbsp;Adults we may call and who may collect your child</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span>Little Lilies Pre-School</span><span>Prospectus</span></div>
+</section>
+
+<!-- ======== 4. HOW TO JOIN ======== -->
+<section class="page">
+  <p class="eyebrow">Joining us</p>
+  <h2 class="section">How to <span class="accent">Register</span></h2>
+
+  <div class="steps" style="margin-top:6mm">
+    <div class="step"><div class="num">1</div><div><h3>Book a tour</h3><p class="muted">Call or message us and pick a weekday. Tours take about 30 minutes.</p></div></div>
+    <div class="step"><div class="num">2</div><div><h3>Bring your documents</h3><p class="muted">If you bring everything on the day, most families finish registration in one visit.</p></div></div>
+    <div class="step"><div class="num">3</div><div><h3>Meet the team</h3><p class="muted">Tell us about your child: routines, allergies and what settles them, so we can prepare properly.</p></div></div>
+    <div class="step"><div class="num">4</div><div><h3>Confirm the place</h3><p class="muted">Once the registration fee is settled, we hold the place and confirm in writing.</p></div></div>
+  </div>
+
+  <div class="box sand">
+    <h3>Good to know</h3>
+    <ul>
+      <li>Registering does not by itself reserve a place. It is confirmed once fees are settled and we confirm in writing.</li>
+      <li>Places in each group are limited, so early registration is encouraged.</li>
+    </ul>
+  </div>
+
+  <div class="box navy" style="margin-top:3mm; padding:5mm">
+    <img class="contact-logo" src="public/logo/ll-primary.png" alt="Little Lilies Pre-School"/>
+    <h3>Come and see us</h3>
+    <p style="margin-top:2mm; line-height:1.8; font-size:10pt">
+      Plot 17051, Kgosing Ward, Mogoditshane, Botswana<br/>
+      +267 73674494<br/>
+      bigdreamslilies@gmail.com<br/>
+      Office hours to be confirmed
+    </p>
+  </div>
+
+  <div class="foot"><span>Little Lilies Pre-School</span><span>Prospectus</span></div>
+</section>
+
+</body>
+</html>

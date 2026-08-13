@@ -1,0 +1,169 @@
+================================================================================
+GOOGLE STITCH — LITTLE LILIES PRE-SCHOOL WEBSITE
+Paste this whole block as the project prompt. Generate web (desktop) first,
+then ask for the mobile variants of the same screens.
+================================================================================
+
+## WHO THIS IS FOR
+
+Little Lilies Pre-School — a new, small preschool in Mogoditshane, Botswana,
+taking children from two and a half to five years old. It has no track record
+yet, so the site's whole job is to make a parent trust it enough to come and
+visit in person. Fees are modest and the school competes on care, structure and
+honesty, not on facilities.
+
+The visitor is a Motswana parent, mostly on an Android phone, often on mobile
+data. They are asking: is my child safe here, will they learn, can I afford it,
+and can I see it for myself?
+
+## THE ONE THING THE DESIGN MUST DO
+
+Every screen ends in the same action: **book a school visit**. Not "learn more",
+not "sign up". The parent must always be one tap from arranging to walk in.
+
+## STRUCTURE — THIS IS THE IMPORTANT PART
+
+Do NOT lay this out as a standard marketing site. Build it as **a guided walk
+through one day at the school**, from arrival to collection. Scrolling down the
+homepage should feel like moving through the day, not like reading a brochure.
+
+The homepage is a single continuous vertical journey with these moments:
+
+  1. ARRIVAL — the front gate. A parent hands over a child. Establish warmth and
+     safety immediately. The school's name and one sentence. One action.
+  2. THE MORNING — circle time, songs, stories, English conversation.
+  3. LEARNING — guided activities in small groups, early concepts.
+  4. OUTSIDE — play.
+  5. LUNCH — food is included in the fee; this matters to parents.
+  6. REST — quiet time.
+  7. AFTERNOON — creative activities, purposeful play.
+  8. COLLECTION — the day closes, and the parent is invited to come and see it
+     for themselves.
+
+Each moment is a full-bleed horizontal band. Photograph on one side, a short
+piece of text on the other, and the side alternates as you descend so the page
+zig-zags. Between the bands, use a thin ribbon or path graphic that visually
+connects one moment to the next, so the page reads as a single continuous route
+rather than stacked sections.
+
+Practical information — fees, age groups, downloads, contact — is NOT scattered
+through the journey. It sits together at the end, after the walk, as a calm
+practical block. The emotional case first, the paperwork second.
+
+## PATTERNS TO AVOID — DO NOT PRODUCE THESE
+
+These are the clichés that make preschool and small-business sites look alike.
+Avoid all of them:
+
+  - A hero with a small uppercase label, a big two-line headline, a paragraph
+    and two side-by-side buttons.
+  - A horizontal strip of three or four short value propositions under the hero.
+  - A grid of feature cards with an icon, a bold title and two lines of text.
+  - A numbered list of "why choose us" reasons.
+  - A single full-width dark band in the brand colour, used once, as a feature.
+  - A contact form sitting beside a column of contact details.
+  - A three-column dark footer with logo, link list and address.
+  - Rounded pill buttons and big soft drop shadows on white cards.
+  - Stock-photo children who are obviously not from this school.
+
+## VISUAL DIRECTION
+
+Warm, human, editorial. Photography does the heavy lifting; the interface gets
+out of its way. Think of a well-made children's picture book rather than a
+corporate template — generous space, confident typography, one clear thing to
+look at per screen.
+
+Photographs should be large and uncropped, treated with soft organic masks
+derived from the lotus petal in the school's logo, never plain rectangles and
+never circles.
+
+Text sits directly on the page, not inside boxes. Where a container is needed,
+use a single hairline rule or a soft tint, not a card with a shadow.
+
+## BRAND — USE THESE EXACT VALUES
+
+  Deep purple    #421163   headings, primary ink
+  Light purple   #865FB3   the lotus mark, accents, secondary text
+  Green          #6FAB22   every call to action, without exception
+  Blue           #3060A7   informational highlights only, used sparingly
+  Lilac wash     #F3EEF9   section grounds
+  Page           #FFFFFF
+
+Typeface: the brand uses Century Gothic. Use Poppins, or another geometric sans
+with a single-storey lowercase 'a', for headings and interface. Use a plain,
+highly readable sans for body text.
+
+The logo is a line-drawn lotus flower with three petals above a wordmark reading
+"Little Lilies" over a bar reading "PRE-SCHOOL", with the strapline
+"Little Steps, Big Dreams".
+
+Green is the action colour. Purple never sits on a button.
+
+## CONFIRMED CONTENT — USE THIS, DO NOT INVENT
+
+  Name          Little Lilies Pre-School
+  Strapline     Little Steps, Big Dreams
+  Positioning   A nurturing preschool combining structured early learning with
+                daily English development in a caring environment, making
+                quality early childhood education accessible to families in
+                Mogoditshane. Where little minds grow with confidence and
+                creativity.
+  Ages          Two and a half to five years
+  Location      Plot 17051, Kgosing Ward, Mogoditshane, Botswana
+  Phone         +267 73 674 494  ·  +267 72 661 691   (both WhatsApp)
+  Email         bigdreamslilies@gmail.com
+  Social        Facebook and TikTok
+  Fees          Registration P200 once off
+                DAV fee P800, paid as P400 then P400
+                School fees P5,100 per term, including food
+                Or three instalments of P1,700
+
+The six things the school offers, in its own words:
+  Structured daily learning — a clear routine of guided learning and purposeful
+    play, so children always know what comes next
+  Daily English development — stories, songs, vocabulary and conversation woven
+    through the day
+  Strong school readiness — communication, early concepts, routines and social
+    confidence
+  Caring teachers — real teachers whose warmth, roles and experience are visible
+  A safe, clean environment — shown, not described
+  Affordable payment options — confirmed fees and instalments families can plan
+    around
+
+## DO NOT WRITE THESE CLAIMS
+
+The school cannot yet evidence them: "best preschool", "world class",
+"full English medium", "government approved", "limited spaces". Do not state
+opening hours, class sizes, staff ratios or teacher names — these are not yet
+confirmed. Leave clearly marked space for them.
+
+## SCREENS TO GENERATE
+
+  1. Homepage — the full day-journey described above
+  2. About the school — its purpose and its people
+  3. Programmes — how the 2½ to 5 range is grouped
+  4. Admissions and fees — the fee table, how to apply, downloadable forms
+  5. Gallery — real photographs of the rooms, the food and the play area
+  6. Contact and visit — map, directions, and booking a visit
+  7. Mobile version of the homepage — this is how most parents will see it
+
+================================================================================
+VARIATIONS WORTH TRYING IF THE FIRST RESULT IS TOO CONVENTIONAL
+================================================================================
+
+If Stitch still returns something template-like, re-run the homepage prompt with
+ONE of these replacing the day-journey structure:
+
+  A. THE TOUR — the page is organised spatially instead of by time. The visitor
+     moves room by room through the building: gate, classroom, play area,
+     kitchen, bathroom, office. Each room answers the question a parent has
+     about that room.
+
+  B. THE PARENT'S QUESTIONS — the entire page is the questions parents actually
+     ask, in their own words, each answered plainly and each ending in an
+     invitation to come and check the answer in person.
+
+  C. THE LETTER — the page is written as a single letter from the school to a
+     parent considering it, set as one long readable column with photographs
+     breaking it up. Radical, very few sites do it, and it suits a small school
+     with nothing to hide.
