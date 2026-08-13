@@ -251,6 +251,89 @@ nav a[href="index.html"]{ min-height:44px; display:inline-flex; align-items:cent
 [class*="bg-blob-"]{ pointer-events:none; }
 section, footer, main{ overflow-x:clip; }
 
+
+/* ── Mobile drawer ───────────────────────────────────────────────── */
+#ll-scrim{ position:fixed; inset:0; background:rgba(28,28,25,.55); backdrop-filter:blur(2px);
+  opacity:0; pointer-events:none; transition:opacity .25s var(--ease-out); z-index:70; }
+#ll-scrim.open{ opacity:1; pointer-events:auto; }
+#ll-drawer{ position:fixed; top:0; right:0; bottom:0; width:min(86vw,340px); background:#fff;
+  transform:translateX(100%); transition:transform .3s var(--ease-out); z-index:80;
+  display:flex; flex-direction:column; padding:20px 20px calc(20px + env(safe-area-inset-bottom));
+  overflow-y:auto; -webkit-overflow-scrolling:touch; box-shadow:-8px 0 40px rgba(28,28,25,.18); }
+#ll-drawer.open{ transform:none; }
+#ll-drawer a.dl{ display:flex; align-items:center; min-height:52px; padding:0 8px;
+  font-family:'Quicksand',sans-serif; font-weight:600; font-size:17px; color:#1c1c19;
+  border-bottom:1px solid #e5e2dd; }
+#ll-drawer a.dl[aria-current="page"]{ color:#755b00; }
+#ll-drawer a.dl:active{ background:#f6f3ee; }
+@media (min-width:1024px){ #ll-scrim,#ll-drawer{ display:none !important; } }
+@media (prefers-reduced-motion:reduce){ #ll-scrim,#ll-drawer{ transition:none; } }
+body.ll-locked{ overflow:hidden; }
+
+
+/* ── Mobile optimisation ─────────────────────────────────────────── */
+@media (max-width:767px){
+  /* Display type must not run off the screen on a 320px phone */
+  h1{ font-size:clamp(28px,8.2vw,38px) !important; line-height:1.14 !important; }
+  h2{ font-size:clamp(23px,6.4vw,30px) !important; line-height:1.2 !important; }
+  h3{ font-size:clamp(17px,4.6vw,20px) !important; }
+  p,li,dd,dt,label{ font-size:16px; }          /* never below 16, avoids iOS zoom */
+  .font-body-lg,[class*="text-body-lg"]{ font-size:16.5px !important; line-height:1.62 !important; }
+
+  /* Covers: shorter so content is reachable without a long scroll */
+  section[class*="min-h-[86vh]"]{ min-height:76svh !important; }
+  section[class*="min-h-[56vh]"],section[class*="min-h-[52vh]"]{ min-height:46svh !important; }
+
+  /* Section rhythm tightened, and gutters kept consistent */
+  .py-section-padding-mobile{ padding-top:44px !important; padding-bottom:44px !important; }
+  .px-gutter{ padding-left:18px !important; padding-right:18px !important; }
+  main > section{ scroll-margin-top:80px; }
+
+  /* Rounded panels lose their side margins so they do not look pinched */
+  .mx-4{ margin-left:10px !important; margin-right:10px !important; }
+  [class*="rounded-xl"].mx-4,[class*="rounded-xl"].md\:mx-8{ border-radius:22px !important; }
+
+  /* Forms: full-width, comfortable, correct keyboard */
+  input,select,textarea{ font-size:16px !important; min-height:48px; border-radius:12px !important; }
+  textarea{ min-height:120px; }
+  form .grid{ grid-template-columns:1fr !important; }
+
+  /* Card body copy is reading text, not a caption */
+  [style*="background-color:#"] p,.feature-card p{ font-size:15.5px !important; line-height:1.6 !important; }
+
+  /* Cards breathe */
+  .grid{ gap:16px !important; }
+  [style*="background-color:#"]{ padding:22px !important; }
+
+  /* Stat band stacks two-up rather than four-across */
+  .grid-cols-2.lg\:grid-cols-4 > div{ padding:18px 12px !important; }
+
+  /* Footer becomes a single readable column */
+  footer .grid{ grid-template-columns:1fr !important; }
+  footer .social-row{ justify-content:flex-start; }
+
+  /* Keep the sticky bar clear of the last section */
+  main{ padding-bottom:8px; }
+}
+
+/* Small phones */
+@media (max-width:360px){
+  .px-gutter{ padding-left:14px !important; padding-right:14px !important; }
+  #ll-cta a{ font-size:13px; padding:13px 6px; }
+}
+
+/* Landscape phones: covers must not eat the whole screen */
+@media (max-height:520px) and (orientation:landscape){
+  section[class*="min-h-["]{ min-height:auto !important; padding-top:56px; padding-bottom:56px; }
+  #ll-cta{ display:none !important; } body{ padding-bottom:0 !important; }
+}
+
+/* Tablet: two-up rather than cramped four-up */
+@media (min-width:768px) and (max-width:1023px){
+  .lg\:grid-cols-5 > div,.lg\:grid-cols-4 > div{ min-width:0; }
+  .px-gutter{ padding-left:28px !important; padding-right:28px !important; }
+}
+
 /* ── Respect motion preferences ──────────────────────────────────── */
 @media (prefers-reduced-motion:reduce){
   .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -553,6 +636,67 @@ Arrange a visit <span class="material-symbols-outlined text-base">arrow_forward<
     var onScroll = function(){ nav.style.boxShadow = window.scrollY > 8 ? '0 2px 20px rgba(28,28,25,.08)' : ''; };
     window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
   }
+})();
+</script>
+
+<div id="ll-scrim" hidden></div>
+<aside id="ll-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="flex items-center justify-between mb-4">
+    <img src="logo/ll-mark.png" alt="Little Lilies Pre-School" class="h-9 w-auto"/>
+    <button id="ll-close" aria-label="Close menu" class="p-3 -mr-2 text-primary">
+      <span class="material-symbols-outlined text-3xl">close</span></button>
+  </div>
+  <nav class="flex flex-col"><a class="dl" href="index.html" aria-current="page">Home</a>
+<a class="dl" href="about.html">About</a>
+<a class="dl" href="programs.html">Programmes</a>
+<a class="dl" href="admissions.html">Admissions</a>
+<a class="dl" href="gallery.html">Gallery</a>
+<a class="dl" href="faq.html">Parent Info</a>
+<a class="dl" href="contact.html">Contact</a></nav>
+  <div class="mt-auto pt-6 grid gap-3">
+    <a href="contact.html" class="text-center py-4 rounded-full font-bold" style="background:#FFCC33;color:#705700">Book a Visit</a>
+    <a href="https://wa.me/26772661691" class="text-center py-4 rounded-full font-bold" style="background:#6FAB22;color:#fff">WhatsApp Us</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.querySelector('nav button.md\\:hidden, nav button.lg\\:hidden, #mobile-menu-trigger');
+  var drawer = document.getElementById('ll-drawer');
+  var scrim  = document.getElementById('ll-scrim');
+  var close  = document.getElementById('ll-close');
+  if(!btn || !drawer || !scrim) return;
+  btn.setAttribute('aria-label','Open menu');
+  btn.setAttribute('aria-expanded','false');
+  btn.setAttribute('aria-controls','ll-drawer');
+  var last = null;
+  function open(){
+    last = document.activeElement;
+    drawer.hidden = false; scrim.hidden = false;
+    requestAnimationFrame(function(){ drawer.classList.add('open'); scrim.classList.add('open'); });
+    document.body.classList.add('ll-locked');
+    btn.setAttribute('aria-expanded','true');
+    (drawer.querySelector('a.dl') || close).focus();
+  }
+  function shut(){
+    drawer.classList.remove('open'); scrim.classList.remove('open');
+    document.body.classList.remove('ll-locked');
+    btn.setAttribute('aria-expanded','false');
+    setTimeout(function(){ drawer.hidden = true; scrim.hidden = true; }, 300);
+    if(last) last.focus();
+  }
+  btn.addEventListener('click', function(e){ e.preventDefault(); open(); });
+  close.addEventListener('click', shut);
+  scrim.addEventListener('click', shut);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('open')) shut();
+    if(e.key === 'Tab' && drawer.classList.contains('open')){
+      var f = drawer.querySelectorAll('a,button');
+      var first = f[0], lastEl = f[f.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); lastEl.focus(); }
+      else if(!e.shiftKey && document.activeElement === lastEl){ e.preventDefault(); first.focus(); }
+    }
+  });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
 })();
 </script>
 </body></html>
