@@ -59,6 +59,7 @@ def head(page, title, description, extra_style=""):
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 <meta name="theme-color" content="#ffcc33"/>
+<meta name="robots" content="noindex,nofollow"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="{canonical}"/>
 <meta property="og:site_name" content="Little Lilies Pre-School"/>
