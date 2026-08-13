@@ -360,6 +360,65 @@ body.ll-locked{ overflow:hidden; }
     .ll-arc-mustard { width:130px; height:76px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 76'><g fill='none' stroke-linecap='round' stroke-width='8'><path d='M10 70 A 55 55 0 0 1 120 70' stroke='%23FFCC33'/><path d='M26 70 A 39 39 0 0 1 104 70' stroke='%23FFCC33' opacity='.65'/><path d='M42 70 A 23 23 0 0 1 88 70' stroke='%23FFCC33' opacity='.4'/></g></svg>"); }
     .ll-blob-purple { width:230px; height:230px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path fill='%23865FB3' d='M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,87.7,-1.3C85.4,13.7,78.2,27.4,69.5,39.6C60.8,51.8,50.7,62.5,38.1,70.5C25.5,78.5,10.4,83.8,-3.8,89.3C-18,94.8,-31.2,100.5,-42.6,96.6C-54,92.7,-63.5,79.2,-71.5,65.3C-79.5,51.4,-86,37.1,-89,21.8C-92,6.5,-91.5,-9.8,-86.3,-24.1C-81.1,-38.4,-71.2,-50.7,-58.9,-59.6C-46.6,-68.5,-32,-74,-17.7,-74.6C-3.4,-75.2,10.6,-70.9,24.1,-67.2C37.6,-63.5,50.6,-60.5,44.7,-76.4Z' transform='translate(100 100)'/></svg>"); }
     .ll-star-green { width:72px; height:72px; background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'><path d='M36 6 L45 27 L68 29 L50 44 L56 67 L36 54 L16 67 L22 44 L4 29 L27 27 Z' fill='none' stroke='%236FAB22' stroke-width='6' stroke-linejoin='round'/></svg>"); }
+
+    /* ── Motion ──────────────────────────────────────────────────────
+       Builds on .reveal above. Grid children come in one after another
+       rather than the whole block at once. */
+    .reveal-item { opacity:0; transform:translateY(16px);
+      transition:opacity .5s var(--ease-out), transform .5s var(--ease-out);
+      transition-delay:calc(var(--i, 0) * 70ms); will-change:opacity, transform; }
+    .reveal-item.is-in { opacity:1; transform:none; }
+
+    /* Hero copy arrives on load, not on scroll */
+    @keyframes ll-rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+    .ll-hero-in > * { opacity:0; animation:ll-rise .62s var(--ease-out) forwards; }
+    .ll-hero-in > *:nth-child(1) { animation-delay:.06s; }
+    .ll-hero-in > *:nth-child(2) { animation-delay:.16s; }
+    .ll-hero-in > *:nth-child(3) { animation-delay:.26s; }
+    .ll-hero-in > *:nth-child(4) { animation-delay:.34s; }
+
+    /* Colour cards lift, and their icon leans in */
+    .ll-card { transition:transform .26s var(--ease-out), box-shadow .26s var(--ease-out); }
+    .ll-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,51,102,.14); }
+    .ll-card .material-symbols-outlined { transition:transform .26s var(--ease-out); }
+    .ll-card:hover .material-symbols-outlined { transform:scale(1.12) rotate(-6deg); }
+
+    /* Photographs breathe on hover instead of jumping */
+    .ll-zoom { overflow:hidden; }
+    .ll-zoom img { transition:transform .7s var(--ease-out); }
+    .ll-zoom:hover img { transform:scale(1.05); }
+
+    /* Buttons answer the press */
+    a[class*="rounded-full"], button[class*="rounded-full"] { transition:transform .16s var(--ease-out), filter .16s var(--ease-out); }
+    a[class*="rounded-full"]:active, button[class*="rounded-full"]:active { transform:scale(.97); }
+
+    /* The crayon marks drift, slowly and out of sync */
+    @keyframes ll-drift { 0%,100% { transform:translate3d(0,0,0) rotate(0deg); }
+                          50% { transform:translate3d(0,-12px,0) rotate(3deg); } }
+    .ll-mark { animation:ll-drift 11s ease-in-out infinite; }
+    .ll-mark[class*="squiggle"] { animation-duration:9s; animation-delay:-2s; }
+    .ll-mark[class*="dots"] { animation-duration:13s; animation-delay:-5s; }
+    .ll-mark[class*="star"], .ll-mark[class*="burst"] { animation-duration:7.5s; animation-delay:-1s; }
+    .ll-mark[class*="blob"] { animation-duration:17s; animation-delay:-8s; }
+
+    /* Header tightens once the page moves */
+    nav { transition:height .26s var(--ease-out), box-shadow .26s var(--ease-out); }
+    nav.ll-stuck { height:64px !important; }
+    nav.ll-stuck img { transform:scale(.9); transition:transform .26s var(--ease-out); }
+
+    /* Accordions open without snapping */
+    details summary .material-symbols-outlined { transition:transform .28s var(--ease-out); }
+    details[open] > *:not(summary) { animation:ll-rise .34s var(--ease-out) both; }
+
+    /* Links in running text underline as you approach them */
+    main a:not([class*="rounded-full"]):not(.dl) { transition:color .2s var(--ease-out); }
+
+    @media (prefers-reduced-motion:reduce) {
+      .reveal-item { opacity:1 !important; transform:none !important; transition:none !important; }
+      .ll-hero-in > * { opacity:1 !important; animation:none !important; }
+      .ll-mark { animation:none !important; }
+      .ll-card:hover, .ll-zoom:hover img { transform:none !important; }
+    }
 </style>
   <script type="module" crossorigin src="./assets/main-CqlLEQio.js"></script>
 </head>
@@ -410,7 +469,7 @@ body.ll-locked{ overflow:hidden; }
 <div class="flex flex-col gap-3 font-label-bold text-label-bold">
 <p class="font-headline-md text-lg text-on-surface mb-1">Visit us</p>
 <p class="font-body-md text-body-md text-on-surface-variant font-normal">Plot 17051, Kgosing Ward<br/>Mogoditshane, Botswana</p>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/26772661691">+267 73 674 494</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/26773674494">+267 73 674 494</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/26772661691">+267 72 661 691</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a>
 <span class="text-on-surface-variant font-normal">www.littlelilies.co.bw</span>
@@ -514,6 +573,60 @@ body.ll-locked{ overflow:hidden; }
     }
   });
   drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
+})();
+</script>
+
+<script>
+/* Motion pass. Layers onto the reveal observer already defined above. */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero copy on load */
+  var heroCopy = document.querySelector('main section:first-of-type .max-w-2xl, body > section:first-of-type .max-w-2xl');
+  if (heroCopy) heroCopy.classList.add('ll-hero-in');
+
+  /* Cards and figures get their hover behaviour without touching the markup */
+  document.querySelectorAll('[style*="background-color:#"], .feature-card').forEach(function (el) {
+    if (el.tagName === 'SPAN' || el.closest('#ll-cta') || el.classList.contains('ll-mark')) return;
+    if (el.className.indexOf('rounded-xl') > -1 || el.className.indexOf('rounded-[') > -1) el.classList.add('ll-card');
+  });
+  document.querySelectorAll('figure, .ll-zoom').forEach(function (f) {
+    if (f.querySelector('img')) f.classList.add('ll-zoom');
+  });
+
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  /* Grid children come in one after another instead of as a block */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  document.querySelectorAll('main .grid, body > section .grid').forEach(function (grid) {
+    /* never touch off-screen furniture: the drawer, the sticky bar, hidden panels */
+    if (grid.closest('#ll-drawer, #ll-cta, #ll-scrim, [hidden]')) return;
+    var kids = grid.children;
+    if (kids.length < 2) return;
+    grid.classList.remove('reveal');
+    for (var i = 0; i < kids.length; i++) {
+      var k = kids[i];
+      if (k.classList.contains('ll-mark')) continue;
+      k.style.setProperty('--i', i % 8);
+      k.classList.add('reveal-item');
+      io.observe(k);
+    }
+  });
+
+  /* Header tightens after the first scroll */
+  var nav = document.querySelector('nav');
+  if (nav) {
+    var stick = function () { nav.classList.toggle('ll-stuck', window.scrollY > 80); };
+    window.addEventListener('scroll', stick, { passive: true });
+    stick();
+  }
 })();
 </script>
 </body></html>
