@@ -56,6 +56,18 @@ re-run build-pages.py; never hand-edit chrome inside a page.
     /* Links in running text underline as you approach them */
     main a:not([class*="rounded-full"]):not(.dl) { transition:color .2s var(--ease-out); }
 
+
+    /* ── Touch targets ───────────────────────────────────────────────
+       Contact details and accordion headers stay finger-sized on any
+       touch screen. Desktop pointers are left alone. */
+    summary { min-height:44px; }
+    @media (pointer:coarse) {
+      a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me"], a[href*="maps.google"], a[href*="google.com/maps"] {
+        display:inline-flex; align-items:center; min-height:44px;
+      }
+      summary { min-height:48px; }
+    }
+
     @media (prefers-reduced-motion:reduce) {
       .reveal-item { opacity:1 !important; transform:none !important; transition:none !important; }
       .ll-hero-in > * { opacity:1 !important; animation:none !important; }
