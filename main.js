@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (initial) setActive(initial);
     }
 
-    const SCHOOL_EMAIL = 'admissions@radianthearts.co.bw';
+    const SCHOOL_EMAIL = 'bigdreamslilies@gmail.com';
 
     const flash = (form, message, tone) => {
         let note = form.querySelector('.form-note');
@@ -157,8 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // the server which school this website belongs to. The school is never
     // named by the browser, and the key can be revoked server-side without
     // touching this file.
-    const ENQUIRY_ENDPOINT = 'https://fcfnivocaotktkqnilbp.supabase.co/functions/v1/public-enquiry';
-    const ENQUIRY_SITE_KEY = 'pk_rh_8efe16b37943ce307b82d7da70a23ce8';
+    // Little Lilies has no admissions endpoint of its own yet: it is meant to be a
+    // second Digital Campus tenant, but that platform has no email provider and no
+    // site key has been issued. The endpoint and key below belonged to Radiant
+    // Hearts, so posting to them would file our parents' details against another
+    // school. Left null deliberately — the submit handler hands the enquiry to the
+    // parent's mail app instead. Restore both once Little Lilies has its own key.
+    const ENQUIRY_ENDPOINT = null;
+    const ENQUIRY_SITE_KEY = null;
 
     // "Other Inquiry" is a reason for writing, not a class the school runs.
     const CLASS_NAMES = ['Baby Class', 'Kinder', 'Middle', 'Reception'];
@@ -207,6 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (consent && !consent.checked) {
                 flash(contactForm, 'Please tick the consent box so we know we may reply to you.');
                 consent.focus();
+                return;
+            }
+
+            // No endpoint yet (see note above), so the enquiry goes out through the
+            // parent's own mail app. Nothing is cleared: if they cancel in the mail
+            // app, everything they typed is still on screen.
+            if (!ENQUIRY_ENDPOINT) {
+                window.location.href = mailtoFallback(name, email, phone, program, message);
+                flash(contactForm, 'Opening your email app so you can send this enquiry to us.', 'ok');
                 return;
             }
 
