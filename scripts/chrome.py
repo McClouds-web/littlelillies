@@ -3,6 +3,65 @@
 Ported from the Stitch "Vibrant Scholastic" export, the nav, footer, blob
 utilities and decorative accents follow that code.html directly. Edit here and
 re-run build-pages.py; never hand-edit chrome inside a page.
+
+    /* ── Motion ──────────────────────────────────────────────────────
+       Builds on .reveal above. Grid children come in one after another
+       rather than the whole block at once. */
+    .reveal-item { opacity:0; transform:translateY(16px);
+      transition:opacity .5s var(--ease-out), transform .5s var(--ease-out);
+      transition-delay:calc(var(--i, 0) * 70ms); will-change:opacity, transform; }
+    .reveal-item.is-in { opacity:1; transform:none; }
+
+    /* Hero copy arrives on load, not on scroll */
+    @keyframes ll-rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+    .ll-hero-in > * { opacity:0; animation:ll-rise .62s var(--ease-out) forwards; }
+    .ll-hero-in > *:nth-child(1) { animation-delay:.06s; }
+    .ll-hero-in > *:nth-child(2) { animation-delay:.16s; }
+    .ll-hero-in > *:nth-child(3) { animation-delay:.26s; }
+    .ll-hero-in > *:nth-child(4) { animation-delay:.34s; }
+
+    /* Colour cards lift, and their icon leans in */
+    .ll-card { transition:transform .26s var(--ease-out), box-shadow .26s var(--ease-out); }
+    .ll-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,51,102,.14); }
+    .ll-card .material-symbols-outlined { transition:transform .26s var(--ease-out); }
+    .ll-card:hover .material-symbols-outlined { transform:scale(1.12) rotate(-6deg); }
+
+    /* Photographs breathe on hover instead of jumping */
+    .ll-zoom { overflow:hidden; }
+    .ll-zoom img { transition:transform .7s var(--ease-out); }
+    .ll-zoom:hover img { transform:scale(1.05); }
+
+    /* Buttons answer the press */
+    a[class*="rounded-full"], button[class*="rounded-full"] { transition:transform .16s var(--ease-out), filter .16s var(--ease-out); }
+    a[class*="rounded-full"]:active, button[class*="rounded-full"]:active { transform:scale(.97); }
+
+    /* The crayon marks drift, slowly and out of sync */
+    @keyframes ll-drift { 0%,100% { transform:translate3d(0,0,0) rotate(0deg); }
+                          50% { transform:translate3d(0,-12px,0) rotate(3deg); } }
+    .ll-mark { animation:ll-drift 11s ease-in-out infinite; }
+    .ll-mark[class*="squiggle"] { animation-duration:9s; animation-delay:-2s; }
+    .ll-mark[class*="dots"] { animation-duration:13s; animation-delay:-5s; }
+    .ll-mark[class*="star"], .ll-mark[class*="burst"] { animation-duration:7.5s; animation-delay:-1s; }
+    .ll-mark[class*="blob"] { animation-duration:17s; animation-delay:-8s; }
+
+    /* Header tightens once the page moves */
+    nav { transition:height .26s var(--ease-out), box-shadow .26s var(--ease-out); }
+    nav.ll-stuck { height:64px !important; }
+    nav.ll-stuck img { transform:scale(.9); transition:transform .26s var(--ease-out); }
+
+    /* Accordions open without snapping */
+    details summary .material-symbols-outlined { transition:transform .28s var(--ease-out); }
+    details[open] > *:not(summary) { animation:ll-rise .34s var(--ease-out) both; }
+
+    /* Links in running text underline as you approach them */
+    main a:not([class*="rounded-full"]):not(.dl) { transition:color .2s var(--ease-out); }
+
+    @media (prefers-reduced-motion:reduce) {
+      .reveal-item { opacity:1 !important; transform:none !important; transition:none !important; }
+      .ll-hero-in > * { opacity:1 !important; animation:none !important; }
+      .ll-mark { animation:none !important; }
+      .ll-card:hover, .ll-zoom:hover img { transform:none !important; }
+    }
 """
 
 DOMAIN = "https://www.littlelilies.co.bw/"
