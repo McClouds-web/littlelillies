@@ -1,4 +1,3 @@
+# Preview build. Do not index until the live domain is ready.
 User-agent: *
-Allow: /
-
-Sitemap: https://www.littlelilies.co.bw/sitemap.xml
+Disallow: /
