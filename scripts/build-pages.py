@@ -316,7 +316,7 @@ PAGES["contact.html"] = dict(
                     <p class="flex gap-3"><span class="material-symbols-outlined text-primary !text-[21px]">location_on</span><span>Plot 17051, Kgosing Ward<br/>Mogoditshane, Botswana</span></p>
                     <p class="flex gap-3"><span class="material-symbols-outlined text-primary !text-[21px]">call</span><span>
                         <a class="hover:text-primary font-semibold" href="https://wa.me/26773674494">+267 73 674 494</a><br/>
-                        <a class="hover:text-primary font-semibold" href="https://wa.me/26772661691">+267 72 661 691</a><br/>
+                        <a class="hover:text-primary font-semibold" href="https://wa.me/26772661691">+267 72 661 691</a><br/><a href="tel:+2673961190">+267 39 61 190</a><br/>
                         <span class="text-outline">Call or WhatsApp</span></span></p>
                     <p class="flex gap-3"><span class="material-symbols-outlined text-primary !text-[21px]">mail</span><a class="hover:text-primary" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a></p>
                     <p class="flex gap-3"><span class="material-symbols-outlined text-primary !text-[21px]">share</span><span>Facebook &amp; TikTok: Little Lillies</span></p>

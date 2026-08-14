@@ -258,6 +258,7 @@ def footer():
                 Plot 17051, Kgosing Ward, Mogoditshane<br/>
                 <a class="hover:text-primary" href="https://wa.me/26773674494">+267 73 674 494</a> &middot;
                 <a class="hover:text-primary" href="https://wa.me/26772661691">+267 72 661 691</a><br/>
+                <a class="hover:text-primary" href="tel:+2673961190">+267 39 61 190</a><br/>
                 <a class="hover:text-primary" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a><br/>
                 www.littlelilies.co.bw
             </p>
