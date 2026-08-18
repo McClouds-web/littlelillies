@@ -225,7 +225,7 @@ CTA_BAND = """
             <a href="contact.html" class="bg-primary-container text-on-primary-container font-label-bold text-label-bold py-4 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2">
                 Book a Visit <span class="material-symbols-outlined text-base">arrow_forward</span>
             </a>
-            <a href="https://wa.me/26773674494" class="bg-transparent border-2 border-white/60 text-white font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-2">
+            <a href="https://wa.me/26772661691?text=Hello%20Little%20Lilies%2C%20I%20am%20enquiring%20about%20places%20for%20my%20child." class="bg-transparent border-2 border-white/60 text-white font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-2">
                 <span class="material-symbols-outlined text-base">chat</span> WhatsApp
             </a>
         </div>
@@ -256,8 +256,8 @@ def footer():
             </p>
             <p class="font-body-md text-sm text-on-surface-variant">
                 Plot 17051, Kgosing Ward, Mogoditshane<br/>
-                <a class="hover:text-primary" href="https://wa.me/26773674494">+267 73 674 494</a> &middot;
-                <a class="hover:text-primary" href="https://wa.me/26772661691">+267 72 661 691</a><br/>
+                <a class="hover:text-primary" href="tel:+26773674494">+267 73 674 494</a> &middot;
+                <a class="hover:text-primary" href="https://wa.me/26772661691?text=Hello%20Little%20Lilies%2C%20I%20am%20enquiring%20about%20places%20for%20my%20child.">+267 72 661 691</a><br/>
                 <a class="hover:text-primary" href="tel:+2673961190">+267 39 61 190</a><br/>
                 <a class="hover:text-primary" href="mailto:bigdreamslilies@gmail.com">bigdreamslilies@gmail.com</a><br/>
                 www.littlelilies.co.bw

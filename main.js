@@ -109,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const SCHOOL_EMAIL = 'bigdreamslilies@gmail.com';
+    // The WhatsApp Business line. Every WhatsApp link on the site points here;
+    // the other mobile and the landline are call-only.
+    const SCHOOL_WHATSAPP = '26772661691';
+    const SCHOOL_PHONE = '+267 72 661 691';
 
     const flash = (form, message, tone) => {
         let note = form.querySelector('.form-note');
@@ -166,8 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ENQUIRY_ENDPOINT = null;
     const ENQUIRY_SITE_KEY = null;
 
-    // "Other Inquiry" is a reason for writing, not a class the school runs.
-    const CLASS_NAMES = ['Baby Class', 'Kinder', 'Middle', 'Reception'];
+    // The groups named in the prospectus. "Other Inquiry" is a reason for writing,
+    // not a group the school runs, so anything off this list is sent as null.
+    // The real group split for two-and-a-half to five years is still unconfirmed
+    // by the client; revisit this list once it is.
+    const CLASS_NAMES = ['Settling In', 'Language & Play', 'Early Concepts', 'School Ready'];
 
     const contactForm = document.getElementById('enquiry-form');
     if (contactForm) {
@@ -175,8 +182,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const buttonLabel = button ? button.textContent.trim() : 'Send Message';
         let sending = false;
 
-        const mailtoFallback = (name, email, phone, topic, message) => {
+        // WhatsApp is the school's staffed channel, so an enquiry that cannot be
+        // posted is handed to WhatsApp rather than to a mail app: a phone with no
+        // mail account configured swallows a mailto: and the parent sees nothing
+        // happen at all.
+        const whatsappFallback = (name, email, phone, topic, message) => {
             const body = [
+                'Website enquiry',
                 'Name: ' + name,
                 'Email: ' + email,
                 phone ? 'Phone: ' + phone : null,
@@ -184,9 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '',
                 message,
             ].filter(Boolean).join('\n');
-            return 'mailto:' + SCHOOL_EMAIL +
-                '?subject=' + encodeURIComponent('Website enquiry from ' + name) +
-                '&body=' + encodeURIComponent(body);
+            return 'https://wa.me/' + SCHOOL_WHATSAPP + '?text=' + encodeURIComponent(body);
         };
 
         contactForm.addEventListener('submit', async (e) => {
@@ -216,12 +226,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // No endpoint yet (see note above), so the enquiry goes out through the
-            // parent's own mail app. Nothing is cleared: if they cancel in the mail
-            // app, everything they typed is still on screen.
+            // No endpoint yet (see note above), so the enquiry goes out on WhatsApp.
+            // Nothing is cleared: if they back out of WhatsApp, everything they
+            // typed is still on screen.
             if (!ENQUIRY_ENDPOINT) {
-                window.location.href = mailtoFallback(name, email, phone, program, message);
-                flash(contactForm, 'Opening your email app so you can send this enquiry to us.', 'ok');
+                window.location.href = whatsappFallback(name, email, phone, program, message);
+                flash(contactForm, 'Opening WhatsApp so you can send this enquiry to us.', 'ok');
                 return;
             }
 
@@ -275,8 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 restore();
                 const note = flash(contactForm, 'We could not reach the school just now. Please check your connection and try again, or ');
                 const link = document.createElement('a');
-                link.href = mailtoFallback(name, email, phone, program, message);
-                link.textContent = 'send this as an email instead';
+                link.href = whatsappFallback(name, email, phone, program, message);
+                link.textContent = 'send this on WhatsApp instead';
                 link.className = 'underline';
                 note.appendChild(link);
                 note.appendChild(document.createTextNode('.'));
@@ -285,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.status === 429) {
                 restore();
-                flash(contactForm, 'That is a few enquiries in a short time. Please wait a few minutes and try again, or call us on +267 78 008 119.');
+                flash(contactForm, 'That is a few enquiries in a short time. Please wait a few minutes and try again, or call us on ' + SCHOOL_PHONE + '.');
                 return;
             }
 
@@ -293,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 restore();
                 const note = flash(contactForm, 'Something went wrong at our end and your enquiry was not sent. Please try again, or ');
                 const link = document.createElement('a');
-                link.href = mailtoFallback(name, email, phone, program, message);
-                link.textContent = 'send this as an email instead';
+                link.href = whatsappFallback(name, email, phone, program, message);
+                link.textContent = 'send this on WhatsApp instead';
                 link.className = 'underline';
                 note.appendChild(link);
                 note.appendChild(document.createTextNode('.'));
@@ -337,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!address) { flash(form, 'Please enter your email address.'); return; }
             window.location.href = 'mailto:' + SCHOOL_EMAIL +
                 '?subject=' + encodeURIComponent('Newsletter signup') +
-                '&body=' + encodeURIComponent('Please add this address to the Radiant Hearts newsletter: ' + address);
+                '&body=' + encodeURIComponent('Please add this address to the Little Lilies newsletter: ' + address);
             flash(form, 'Opening your email app to confirm your signup...');
         });
     });
