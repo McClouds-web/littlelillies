@@ -76,6 +76,39 @@ re-run build-pages.py; never hand-edit chrome inside a page.
     }
 """
 
+SCHEMA_LD = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Preschool",
+  "@id": "https://www.littlelilies.co.bw/#school",
+  "name": "Little Lilies Pre-School",
+  "alternateName": "Little Lilies",
+  "slogan": "Little Steps, Big Dreams",
+  "description": "A nurturing preschool in Mogoditshane, Botswana, offering structured early learning and daily English for children two and a half to five years.",
+  "url": "https://www.littlelilies.co.bw/",
+  "logo": "https://www.littlelilies.co.bw/logo/ll-primary.png",
+  "telephone": "+26772661691",
+  "email": "bigdreamslilies@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot 17051, Kgosing Ward",
+    "addressLocality": "Mogoditshane",
+    "addressCountry": "BW"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "16:30"
+    }
+  ],
+  "sameAs": ["https://www.facebook.com/littleliliesbw"],
+  "typicalAgeRange": "2.5-5"
+}
+</script>"""
+
+
 DOMAIN = "https://www.littlelilies.co.bw/"
 
 NAV = [
@@ -142,6 +175,7 @@ def head(page, title, description, extra_style=""):
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>{STYLE}{extra_style}</style>
+{SCHEMA_LD}
 </head>
 <body class="antialiased bg-background">
 """
