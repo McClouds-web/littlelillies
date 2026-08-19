@@ -100,7 +100,7 @@ SCHEMA_LD = """<script type="application/ld+json">
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "07:00",
-      "closes": "16:30"
+      "closes": "17:00"
     }
   ],
   "sameAs": ["https://www.facebook.com/littleliliesbw"],
